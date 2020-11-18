@@ -119,7 +119,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
-         print("mode just switched to qwerty and this is a huge string\n");
         set_single_persistent_default_layer(_QWERTY);
       }
       return false;
@@ -154,9 +153,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
 	case M_ENJP:
 	  if (record->event.pressed) {
-	  	SEND_STRING(SS_LGUI(" "));
+	  	SEND_STRING(SS_LGUI("`"));
 	  } else {
-	  	unregister_code(KC_LANG4);
+	  	unregister_code(KC_LALT);
 	  }
 	  return false;
 	  break;
